@@ -199,5 +199,23 @@ namespace EclipseProject
 
             return MessagePackSerializer.Serialize<DiracResponse>(response);
         }
+
+        public async UnaryResult<bool> FinishAsync(byte[] serializedEnv)
+        {
+            EncryptedEnvelope env = MessagePackSerializer.Deserialize<EncryptedEnvelope>(serializedEnv);
+
+            if (!_sessions.TryGet(env.ClientId, out SessionState s))
+            {
+                throw new Exception("Session not found.");
+            }
+
+            // Authenticate the teardown request by decrypting with the established c2s key.
+            // A successful decrypt proves this was sent by the legitimate holder of the session key.
+            s.FromClient.Decrypt(env);
+
+            _sessions.Remove(env.ClientId);
+
+            return true;
+        }
     }
 }

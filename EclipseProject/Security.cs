@@ -314,6 +314,16 @@ namespace EclipseProject
             public void Upsert(SessionState session)
                 => _sessions[session.ClientId] = session;
 
+            public bool Remove(string clientId)
+            {
+                if (_sessions.TryRemove(clientId, out var session))
+                {
+                    session.Dispose();
+                    return true;
+                }
+                return false;
+            }
+
             private async Task CleanupLoopAsync(CancellationToken ct)
             {
                 while (!ct.IsCancellationRequested)

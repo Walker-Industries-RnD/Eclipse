@@ -11,6 +11,7 @@ using static Pariah_Cybersecurity.EasyPQC;
 using static Secure_Store.Storage;
 using static EclipseProject.Security;
 using EclipseLCL;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 
 namespace EclipseProject
@@ -91,6 +92,9 @@ namespace EclipseProject
                 object finalResults = serverChannel.UnpackResponse<object>(serializedResp);
 
                 Console.WriteLine($"Response received.\nCONTENT: {finalResults}");
+
+                bool success = await api.FinishAsync(clientChannel.PackAndEncrypt<bool>("terminate", true));
+                Console.WriteLine($"Terminating connection. Success: {success}");
 
             }
             catch (Exception e)
