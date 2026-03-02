@@ -183,25 +183,21 @@ namespace EclipseProject
 
         public async UnaryResult<byte[]> InvokeAsync(byte[] serializedEnv)
         {
-
             EncryptedEnvelope env = MessagePackSerializer.Deserialize<EncryptedEnvelope>(serializedEnv);
-            
+
             if (!_sessions.TryGet(env.ClientId, out SessionState s))
             {
                 throw new Exception("Session not found.");
             }
-            
+
             Ocean ocean = EclipseServer.GetOcean();
-            
-            byte[] serializedPayload = s.FromClient.Decrypt(env);
-            var payload = MessagePackSerializer.Deserialize<Dictionary<string, object?>>(serializedPayload);
+
+            var payload = s.FromClient.DecryptAndUnpack<Dictionary<string, object?>>(env);
             DiracRequest request = new EclipseLCL.DiracRequest(env.Method, payload);
 
             DiracResponse response = await ocean.HandleRequestAsync(request, s.ToClient);
 
-            byte[] serializedResp = MessagePackSerializer.Serialize<DiracResponse>(response);
-
-            return serializedResp;
+            return MessagePackSerializer.Serialize<DiracResponse>(response);
         }
     }
 }

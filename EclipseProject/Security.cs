@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using MessagePack;
+using EclipseLCL;
 
 namespace EclipseProject
 {
@@ -176,6 +177,40 @@ namespace EclipseProject
 
                 _recvSeq = env.Seq;
                 return plaintext;
+            }
+
+            /// <summary>
+            /// Serialize <paramref name="payload"/>, encrypt it, then serialize the resulting
+            /// <see cref="EncryptedEnvelope"/> into wire bytes ready for transmission.
+            /// </summary>
+            public byte[] PackAndEncrypt<T>(string method, T payload)
+            {
+                byte[] serializedPayload = MessagePackSerializer.Serialize(payload);
+                EncryptedEnvelope env = Encrypt(method, serializedPayload);
+                return MessagePackSerializer.Serialize<EncryptedEnvelope>(env);
+            }
+
+            /// <summary>
+            /// Decrypt <paramref name="env"/> and deserialize the plaintext as <typeparamref name="T"/>.
+            /// </summary>
+            public T DecryptAndUnpack<T>(EncryptedEnvelope env)
+            {
+                byte[] plaintext = Decrypt(env);
+                return MessagePackSerializer.Deserialize<T>(plaintext);
+            }
+
+            /// <summary>
+            /// Deserialize a <see cref="DiracResponse"/> from <paramref name="serializedResp"/>,
+            /// assert success, then decrypt and deserialize the result as <typeparamref name="T"/>.
+            /// </summary>
+            public T UnpackResponse<T>(byte[] serializedResp)
+            {
+                DiracResponse resp = MessagePackSerializer.Deserialize<DiracResponse>(serializedResp);
+                if (!resp.Success)
+                    throw new Exception($"Function failed, server message: {resp.ServerMessage}");
+                EncryptedEnvelope data = MessagePackSerializer.Deserialize<EncryptedEnvelope>(resp.EncryptedData);
+                byte[] plaintext = Decrypt(data);
+                return MessagePackSerializer.Deserialize<T>(plaintext);
             }
 
             public void Dispose()

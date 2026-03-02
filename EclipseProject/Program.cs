@@ -10,7 +10,6 @@ using System.Text;
 using static Pariah_Cybersecurity.EasyPQC;
 using static Secure_Store.Storage;
 using static EclipseProject.Security;
-using MessagePack;
 using EclipseLCL;
 
 
@@ -83,29 +82,13 @@ namespace EclipseProject
                         throw new Exception("Incorrect transcript HMAC");
                     }
                 }
-                // TODO: a cleaner solution for multiple serialization & parameters
-
                 Dictionary<string, int> payload = new Dictionary<string, int>();
                 payload.Add("a", 2);
                 payload.Add("b", 62);
 
-                byte[] serializedPayload = MessagePackSerializer.Serialize(payload);
-                
-                EncryptedEnvelope env = clientChannel.Encrypt("AddNumbers", serializedPayload);
-                byte[] serializedEnv = MessagePackSerializer.Serialize<EncryptedEnvelope>(env);
-
+                byte[] serializedEnv = clientChannel.PackAndEncrypt("AddNumbers", payload);
                 byte[] serializedResp = await api.InvokeAsync(serializedEnv);
-
-                DiracResponse resp = MessagePackSerializer.Deserialize<DiracResponse>(serializedResp);
-                if (!resp.Success)
-                {
-                    throw new Exception($"Function failed, server message: {resp.ServerMessage}");
-                }
-                
-                EncryptedEnvelope data = MessagePackSerializer.Deserialize<EncryptedEnvelope>(resp.EncryptedData);
-
-                var results = serverChannel.Decrypt(data);
-                object finalResults = MessagePackSerializer.Deserialize<object>(results);
+                object finalResults = serverChannel.UnpackResponse<object>(serializedResp);
 
                 Console.WriteLine($"Response received.\nCONTENT: {finalResults}");
 
