@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
+    <PackageReference Include="Ceras" Version="4.1.7" />
+    <PackageReference Include="Data.HashFunction.Blake3" Version="3.1.2" />
+    <PackageReference Include="EasyCompressor.LZ4" Version="2.1.0" />
+    <PackageReference Include="K4os.Compression.LZ4" Version="1.3.8" />
+    <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.1" />
+    <PackageReference Include="MagicOnion" Version="7.10.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="System.Data.HashFunction.Interfaces" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EclipseLCL\EclipseLCL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PariahCybersecurity">
+      <HintPath>PariahCybersecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureStore">
+      <HintPath>SecureStore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

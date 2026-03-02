@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MagicOnion" Version="7.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PariahCybersecurity">
+      <HintPath>PariahCybersecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureStore">
+      <HintPath>SecureStore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

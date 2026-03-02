@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EclipseLCL/EclipseLCL.csproj" Id="8f848441-fc8c-4cc6-8d4e-812445409c6b" />
+  <Project Path="EclipseProject/EclipseProject.csproj" />
+</Solution>
