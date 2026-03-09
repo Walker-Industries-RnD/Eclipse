@@ -35,12 +35,20 @@ namespace EclipseProject
 
         public static async Task Main()
         {
-            EclipseServer.RunServer();
+            EclipseServer.RunServer("Eclipse Server");
 
             try
             {
-                // Client can connect now
-                using var channel = GrpcChannel.ForAddress("http://127.0.0.1:5000");
+
+                ICollection<string>? addresses = SecureStore.Get<ICollection<string>>("Eclipse Server");
+
+                if (addresses == null || addresses.Count == 0)
+                    throw new Exception("No server addresses found in SecureStore.");
+
+                // Pick the first available address
+                string serverAddr = addresses.First();
+
+                using var channel = GrpcChannel.ForAddress(serverAddr);
                 var api = MagicOnionClient.Create<IDiracService>(channel);
 
                 // enrollment, create clientId/PSK and SecureStore them. server will have access if it's with the same user

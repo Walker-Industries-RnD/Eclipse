@@ -1,8 +1,12 @@
-﻿using Grpc.Core;
+﻿using EclipseLCL;
+using Grpc.Core;
 using MagicOnion;
 using MagicOnion.Server;
+using MessagePack;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Org.BouncyCastle.Crypto;
@@ -19,11 +23,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using static Secure_Store.Storage;
 using static EclipseProject.Ocean;
 using static EclipseProject.Security;
-using EclipseLCL;
-using MessagePack;
+using static Secure_Store.Storage;
 
 namespace EclipseProject
 {
@@ -32,37 +34,50 @@ namespace EclipseProject
         private static Ocean? ocean;
         private static (Dictionary<string, byte[]> Public, Dictionary<string, byte[]> Private) ServerKyberKeys;
         public static bool enabled = false;
-        public static async void RunServer(string[]? args = null, int port = 5000, bool useNamedPipesLater = false)
+        public static async Task RunServer(string? serverName = "Test Eclipse Server")
         {
             Console.WriteLine("Starting Eclipse Ocean gRPC Server...");
 
             ServerKyberKeys = EasyPQC.Keys.Initiate();
 
-            var builder = WebApplication.CreateBuilder(args);
+            var builder = WebApplication.CreateBuilder();
 
             builder.Services.AddSingleton<SessionStore>();
-
-            // Register MagicOnion services
             builder.Services.AddMagicOnion();
 
-            // Auto-register all [SeaOfDirac] functions at startup
             ocean = new Ocean();
             ocean.FloodTheSea();
 
-            // Kestrel config — localhost TCP for now
             builder.WebHost.ConfigureKestrel(options =>
             {
-                options.ListenLocalhost(5000, o => o.Protocols = HttpProtocols.Http2);
+                options.Listen(System.Net.IPAddress.Loopback, 0, o => o.Protocols = HttpProtocols.Http2);
             });
 
             var app = builder.Build();
-
-            // Map MagicOnion to gRPC endpoint
             app.MapMagicOnionService();
 
             enabled = true;
 
-            await app.RunAsync();
+            // Start the server without awaiting (so we can grab the addresses)
+            var serverTask = app.StartAsync();
+
+            // Get the actual bound URL after Kestrel starts
+            var server = app.Services.GetRequiredService<IServer>();
+            var addressesFeature = server.Features.Get<IServerAddressesFeature>();
+
+            // Wait until Kestrel actually binds
+            while (!addressesFeature.Addresses.Any())
+            {
+                await Task.Delay(50);
+            }
+
+            Console.WriteLine("Server running on: " + string.Join(", ", addressesFeature.Addresses));
+
+            // Save the bound address
+            SecureStore.Set(serverName, addressesFeature.Addresses);
+
+            // Keep the server running
+            await serverTask;
         }
         public static Dictionary<string, byte[]> GetPublicKey()
         {
