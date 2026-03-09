@@ -52,7 +52,7 @@ Finally, check these out!
 
 | ![John](docs/assets/members/database_john_default.png) | ![Walker](docs/assets/members/database_walker_default.png) | ![Chubu](docs/assets/members/database_chubu_paper.png) |
 |:---:|:---:|:---:|
-| **Jpena173**<br>Backend Support / Development Help<br>[GitHub](https://github.com/jpena173)<br><br>"I can't think of a quote; you can leave it alone for now" | **WalkerDev**<br>Founder / Lead Developer<br><br>“Don't be afraid of change—Think of it as something that'll open the door to deeper, more precious feelings for you in the future.”<br>[YouTube](https://www.youtube.com/@walkerdev1) | **Chubu**<br>QA & VN Artist<br><br>"If you don't know how to do something, keep doing it! You'll figure it out eventually! :3" |
+| **Jpena173**<br>Backend Support / Development Help<br>[GitHub](https://github.com/jpena173)<br><br>"You are your strongest advocate, capable of more than you'd think." | **WalkerDev**<br>Founder / Lead Developer<br><br>“Don't be afraid of change—Think of it as something that'll open the door to deeper, more precious feelings for you in the future.”<br>[YouTube](https://www.youtube.com/@walkerdev1) | **Chubu**<br>QA & VN Artist<br><br>"If you don't know how to do something, keep doing it! You'll figure it out eventually! :3" |
 
 ---
 
