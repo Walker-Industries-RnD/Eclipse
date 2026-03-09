@@ -1,0 +1,109 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Eclipse]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>site-lib/media/favicon.png</url><title>Eclipse</title><link/></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Mon, 09 Mar 2026 10:29:40 GMT</lastBuildDate><atom:link href="site-lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Mon, 09 Mar 2026 10:29:34 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[4 - The Dogmas]]></title><description><![CDATA[Development of this directly connects to the XRUIOS; the main goal and driving factor behind most of the code developed. So far, three dogmas have been met;Pariah Cybersecurity was developed over years, using a mix of different open source projects to create a strong security foundation for our projects. We use this in production already, such as within<a data-tooltip-position="top" aria-label="https://store.steampowered.com/app/4098880/Database_Designer/" rel="noopener nofollow" class="external-link is-unresolved" href="https://store.steampowered.com/app/4098880/Database_Designer/" target="_self"> Database Designer.</a>This allowed us to create a system which would ensure the secrets of users are always properly protected and unable to be easily cracked.<br>The <a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" target="_self">XRUIOS.Barebones </a>project stands as a testament to a long-term goal; the creation of interconnected devices.<br>The XRUIOS itself is a 400+ function system helping in data orchestration between operating systems and different devices; be it a headset, computer, CMD terminal or robot. Atop this, the XRUIOS uses <a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/YuukoProtocol" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/YuukoProtocol" target="_self">YuukoProtocol</a>; a system focused on connecting these different devices as optimized as possible.Later on, this will help in creating the SCCN (Or the Shared Collective Conscious Network, allowing devices to safely talk with each other on a global scale for IoT and Augmented Reality).With Eclipse, the third Dogma has been met; a solution allowing any part of any software to become part of this shared network. Through this, any device has the capacity of becoming an interconnected part of the SCCN, be it at scale or at a tiny scale.Moreover, the focus was on creating a solution that was secure but privacy focused. The Sea of Dirac and Eclipse place the user over all else so there is no data collection, proprietary API or requirement to a centralized machine outside the user's area to use.]]></description><link>4-the-dogmas.html</link><guid isPermaLink="false">4 - The Dogmas.md</guid><pubDate>Mon, 09 Mar 2026 10:29:24 GMT</pubDate></item><item><title><![CDATA[Welcome]]></title><description><![CDATA[ <img alt="Plagues" src="assets/images/eclipse-banner.png" referrerpolicy="no-referrer" target="_self"> A Free, Open Source Solution For Secure Application To Application Communication Eclipse creates a simple, high speed system for allowing applications to speak to each other. It was made around supporting different applications, APIs and even local LLMs. It does so in a way where injecting false requests or reading the results of a request is almost impossible to outside programs. Atop this, it uses NIST recommended PQC algorithms such as AES-256-GCM and KYBER-Crystals. Cross Platform • Fully Offline • Post Quantum Computing Resistant • No BS Expose any static method with one attribute → instantly callable over secure channel Strong mutual authentication &amp; encryption using pre-shared keys + ephemeral Kyber-based key exchange AES-256-GCM for request/response payloads Hard for third-party processes to inject or read traffic Designed for local-first scenarios (desktop apps ↔ local LLMs ↔ tools ↔ services) No central server required beyond the machine itself The following (Free, Open Source Solutions on our Github) libraries are required for this to workl<br><a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/PariahCybersecurity" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/PariahCybersecurity" target="_self">- Pariah Cybersecurity </a><br>
+<a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/Secure-Store/tree/main" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/Secure-Store/tree/main" target="_self">- Secure Store </a>Also, be sure your project references both Eclipse and EclipseLCL!Finally, check these out!<br><a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" target="_self">XRUIOS.Barebones; the project this was made for and</a><br><a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/XRUIOS.Dirac/tree/main" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/XRUIOS.Dirac/tree/main" target="_self">XRUIOS.Dirac; the implementation of this on a real setting!</a>
+Server-side: mark methods with [SeaOfDirac(...)] → they become discoverable &amp; callable Server runs with one line: EclipseServer.RunServer("MyServerName") Client discovers server address (via SecureStore or other mechanism) Client performs secure enrollment + handshake (PSK + Kyber + nonces + transcript) Client sends encrypted DiracRequest → server executes → encrypted DiracResponse returned End-to-end confidentiality, integrity, and freshness via AEAD + transcript proofs Enrollment → registers client ID + PSK Handshake → Kyber-encrypted key exchange → shared secret Session → AES-256-GCM + per-message nonces Transcript → HMAC-protected log of handshake messages → prevents downgrade &amp; MITM Designed to resist classical &amp; quantum adversaries (where Kyber helps) Source code: [link to repo – add when public] License: MPL 2.0 (code)
+Artwork &amp; mascot (if any): © respective artists — NO AI training, NO unauthorized reproduction Code<br>
+<a data-tooltip-position="top" aria-label="https://raw.githubusercontent.com/non-ai-licenses/non-ai-licenses/main/NON-AI-MPL-2.0" rel="noopener nofollow" class="external-link is-unresolved" href="https://raw.githubusercontent.com/non-ai-licenses/non-ai-licenses/main/NON-AI-MPL-2.0" target="_self">NON-AI MPL 2.0</a>This software is licensed under MPL 2.0 with the following exception:Artwork
+© Chubu — NO AI training. NO reproduction. NO exceptions.
+Unauthorized use of the artwork — including copying, distribution, modification, or inclusion in any machine-learning training dataset — is strictly prohibited and will be prosecuted to the fullest extent of the law.
+]]></description><link>welcome.html</link><guid isPermaLink="false">Welcome.md</guid><pubDate>Mon, 09 Mar 2026 10:14:01 GMT</pubDate><enclosure url="Docs/assets/images/eclipse-banner.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="Docs/assets/images/eclipse-banner.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[3 - Creating A Request]]></title><description><![CDATA[At this point, you can now create and handle requests! We use two simple methods for this; DiracRequest and DiracResponse.DiracRequests are how you send a request; they consist of two parts; FunctionName (string, The function we wish to call within this app) and
+Parameters (Dictionary&lt;string, object&gt;, The parameters for the function, handled with PackData)
+This is the response we get from the server; it comes with three parts.
+Success (bool, Did this work?)
+EncryptedData (byte array, the data returned by the function) and
+ServerMessage (Information about the run)
+Now, let's create a request! Going back to our example from <a data-href="1 - Setting Up The Server" href="1-setting-up-the-server.html" class="internal-link" target="_self" rel="noopener nofollow">1 - Setting Up The Server</a>, we handle this with a few steps;Dictionary&lt;string, int&gt; payload = new Dictionary&lt;string, int&gt;();
+payload.Add("a", 2);
+payload.Add("b", 62);
+This will encrypt the values with AES Encryption while creating a byte based payload! Then, it will send to the server.
+byte[] serializedEnv = clientChannel.PackAndEncrypt("AddNumbers", payload); byte[] serializedResp = await api.InvokeAsync(serializedEnv);
+object finalResults = serverChannel.UnpackResponse&lt;object&gt;(serializedResp); Console.WriteLine($"Response received.\nCONTENT: {finalResults}");
+Finally, when you are done and want to terminate the connection? Simply usebool success = await api.FinishAsync(clientChannel.PackAndEncrypt&lt;bool&gt;("terminate", true));
+]]></description><link>3-creating-a-request.html</link><guid isPermaLink="false">3 - Creating A Request.md</guid><pubDate>Mon, 09 Mar 2026 09:52:58 GMT</pubDate></item><item><title><![CDATA[2 - Running and Connecting Through The Dirac]]></title><description><![CDATA[This is extremely simple! Just use EclipseServer.RunServer("Eclipse Server");
+The text is the name of the server; it will be publicly accessible to all programs on the computer. This collection of servers is what we refer to as the Sea of Dirac.You can choose to expose ListFunctionDetails through an interface, allowing applications to send/receive requestsTo connect, all you need to do is ICollection&lt;string&gt;? addresses = SecureStore.Get&lt;ICollection&lt;string&gt;&gt;("Eclipse Server"); if (addresses == null || addresses.Count == 0) throw new Exception("No server addresses found in SecureStore."); // Pick the first available address
+string serverAddr = addresses.First();
+This allows you to call the functions tagged with SeaofDirac through the server now! However, first we need to secure the connection.using var channel = GrpcChannel.ForAddress(serverAddr);
+var api = MagicOnionClient.Create&lt;IDiracService&gt;(channel);
+SecureRandom rand = new SecureRandom();
+byte[] PSK = new byte[32];
+string clientId = Guid.NewGuid().ToString(); rand.NextBytes(PSK);
+SecureStore.Set(clientId, PSK); Dictionary&lt;string, byte[]&gt; pubKey = await api.EnrollAsync("demo", clientId);
+var secretResult = Keys.CreateSecret(pubKey);
+var sharedSecret = secretResult.key;
+var cipher = secretResult.text;
+byte[] nonceC = new byte[16]; rand.NextBytes(nonceC);
+var serverResp = await api.BeginHandshakeAsync(clientId, cipher, nonceC); var keys = PrepareKeys(PSK, nonceC, serverResp.nonceS, sharedSecret); byte[] transcriptHash = SHA256.HashData(ByteArrayExtensions.Combine(Encoding.UTF8.GetBytes(clientId), cipher, nonceC, serverResp.nonceS, serverResp.sessionId, BitConverter.GetBytes(serverResp.epoch))); AeadChannel clientChannel = new AeadChannel(keys.k_c2s, serverResp.sessionId, clientId, 1, new Transcript(transcriptHash, "client-finished"));
+AeadChannel serverChannel = new AeadChannel(keys.k_s2c, serverResp.sessionId, clientId, 1, new Transcript(transcriptHash, "server-finished")); if (clientChannel.transcript.proof == null || serverChannel.transcript.proof == null)
+{ throw new Exception("Invalid HMAC proof");
+} byte[] serverTranscriptRaw = await api.FinishHandshakeAsync(clientId, clientChannel.transcript.proof); for (int i = 0; i &lt; serverTranscriptRaw.Length; i++)
+{ if (serverTranscriptRaw[i] != serverChannel.transcript.proof[i]) { throw new Exception("Incorrect transcript HMAC"); }
+} This process does a few things for security;
+We generate a secure PSK and save it, enrolling it VIA an API (Which will return cryptographic info)
+We do a handshake between the server and client, which will handle Generating a nonce and sesssion ID for the server and client
+Creating a shared secret used for encryption and
+Computing a transcript h ash for integrity Finally, we can create a request!]]></description><link>2-running-and-connecting-through-the-dirac.html</link><guid isPermaLink="false">2 - Running and Connecting Through The Dirac.md</guid><pubDate>Mon, 09 Mar 2026 09:38:14 GMT</pubDate></item><item><title><![CDATA[1 - Setting Up The Server]]></title><description><![CDATA[At the core, Eclipse uses MagicOnion. With this in mind, the setup is extremely similar to it albeit different.To begin, create any function. For example, public static int AddNumbers(int a, int b)
+{ return a + b;
+} public static int SubtractNumbers(int a, int b)
+{ return a - b;
+}
+Want to use structs, records, classes and generally non standard data types? You must create an interface class. As an example from<a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" target="_self"> The XRUIOS</a> (Which this was built for), we have the class
+public class Color
+{ public int R = 0; public int G = 0; public int B = 0; public int A = 0; public Color() { } public Color(int r, int g, int b, int a) { this.R = r; this.G = g; this.B = b; this.A = a; }
+} There are two things we did here;
+We create this as an interface, which will be the model both the server and client references and
+We create a parameterless constructor, which is required if you plan on using the JSONHandler in Pariah Cybersecurity
+Generally, it's fine to make models on a client or server as long as the other never needs to touch it. Something internal is fine, but if it's something that needs to be touched by a client and server? Add to the interface!For any function you want to expose to the Sea of Dirac, simply attach the SeaOfDirac attribute; for example,[SeaOfDirac("AddNumbers", null, typeof(int), typeof(int), typeof(int))]
+public static int AddNumbers(int a, int b)
+{ return a + b;
+} [SeaOfDirac("SubtractNumbers", null, typeof(int), typeof(int), typeof(int))]
+public static int SubtractNumbers(int a, int b)
+{ return a - b;
+}
+Adding a SeaOfDirac function is simple - there are four parameters an attribute will have;
+The name of the function, as a string
+The parameter names in a string array
+The parameter types in a type array and
+The return type as a type
+Keep in mind! Parameter names can be as simple as being null, or being as advanced as a manual for an AI to generate! To standardize usage, it's recommended that you split any info into brackets. Specifically.
+{AI: The overview of the information for a LLM}
+{AID: The detailed explanation of the information for a LLM}
+{U: The overview of the information for a user}
+{M: The overview of the information for a manual}
+You can then use a parser to show the relevant information. Let's take Color as an example!
+AI: "A RGBA color"
+AID: "To create a color, return four values between 0 and 255. This will represent an R, B, B and A value as integers."
+U: "A color."
+M: "A RGBA color created of four ints"
+That's all! Now, the server will be able to catch any and all functions with the Dirac attribute!]]></description><link>1-setting-up-the-server.html</link><guid isPermaLink="false">1 - Setting Up The Server.md</guid><pubDate>Mon, 09 Mar 2026 03:46:28 GMT</pubDate></item><item><title><![CDATA[2 - How To Use The Server]]></title><description><![CDATA[TODO: Error @ var channel, SecureStore should allow you to request the IP of the program as "XRUIOS", which will then return the IP locally]]></description><link>2-how-to-use-the-server.html</link><guid isPermaLink="false">2 - How To Use The Server.md</guid><pubDate>Mon, 09 Mar 2026 03:54:17 GMT</pubDate></item><item><title><![CDATA[1 - How To Setup The Server]]></title><description><![CDATA[At the core, Eclipse uses MagicOnion. With this in mind, the setup is extremely similar to it albeit different.To begin, create any function. For example, public static int AddNumbers(int a, int b)
+{ return a + b;
+} public static int SubtractNumbers(int a, int b)
+{ return a - b;
+}
+Want to use structs, records, classes and generally non standard data types? You must create an interface class. As an example from<a data-tooltip-position="top" aria-label="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Walker-Industries-RnD/XRUIOS.Barebones" target="_self"> The XRUIOS</a> (Which this was built for), we have the class
+public class Color
+{ public int R = 0; public int G = 0; public int B = 0; public int A = 0; public Color() { } public Color(int r, int g, int b, int a) { this.R = r; this.G = g; this.B = b; this.A = a; }
+} There are two things we did here;
+We create this as an interface, which will be the model both the server and client references and
+We create a parameterless constructor, which is required if you plan on using the JSONHandler in Pariah Cybersecurity
+Generally, it's fine to make models on a client or server as long as the other never needs to touch it. Something internal is fine, but if it's something that needs to be touched by a client and server? Add to the interface!For any function you want to expose to the Sea of Dirac, simply attach the SeaOfDirac attribute; for example,[SeaOfDirac("AddNumbers", null, typeof(int), typeof(int), typeof(int))]
+public static int AddNumbers(int a, int b)
+{ return a + b;
+} [SeaOfDirac("SubtractNumbers", null, typeof(int), typeof(int), typeof(int))]
+public static int SubtractNumbers(int a, int b)
+{ return a - b;
+}
+Adding a SeaOfDirac function is simple - there are four parameters an attribute will have;
+The name of the function, as a string
+The parameter names in a string array
+The parameter types in a type array and
+The return type as a type
+Keep in mind! Parameter names can be as simple as being null, or being as advanced as a manual for an AI to generate! To standardize usage, it's recommended that you split any info into brackets. Specifically.
+{AI: The overview of the information for a LLM}
+{AID: The detailed explanation of the information for a LLM}
+{U: The overview of the information for a user}
+{M: The overview of the information for a manual}
+You can then use a parser to show the relevant information. Let's take Color as an example!
+AI: "A RGBA color"
+AID: "To create a color, return four values between 0 and 255. This will represent an R, B, B and A value as integers."
+U: "A color."
+M: "A RGBA color created of four ints"
+That's all! Now, the server will be able to catch any and all functions with the Dirac attribute!]]></description><link>1-how-to-setup-the-server.html</link><guid isPermaLink="false">1 - How To Setup The Server.md</guid><pubDate>Mon, 09 Mar 2026 03:46:28 GMT</pubDate></item><item><title><![CDATA[Eclipse Banner]]></title><description><![CDATA[<img src="assets/images/eclipse-banner.png" target="_self">]]></description><link>assets/images/eclipse-banner.html</link><guid isPermaLink="false">Assets/Images/Eclipse Banner.png</guid><pubDate>Mon, 09 Mar 2026 02:56:23 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src="."&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Database_Chubu_Paper]]></title><description><![CDATA[<img src="assets/members/database_chubu_paper.png" target="_self">]]></description><link>assets/members/database_chubu_paper.html</link><guid isPermaLink="false">Assets/Members/Database_Chubu_Paper.png</guid><pubDate>Thu, 05 Mar 2026 19:26:31 GMT</pubDate><enclosure url="assets/members/database_chubu_paper.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="assets/members/database_chubu_paper.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Database_John_Default]]></title><description><![CDATA[<img src="assets/members/database_john_default.png" target="_self">]]></description><link>assets/members/database_john_default.html</link><guid isPermaLink="false">Assets/Members/Database_John_Default.png</guid><pubDate>Thu, 05 Mar 2026 19:25:36 GMT</pubDate><enclosure url="assets/members/database_john_default.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="assets/members/database_john_default.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Database_Walker_Default]]></title><description><![CDATA[<img src="assets/members/database_walker_default.png" target="_self">]]></description><link>assets/members/database_walker_default.html</link><guid isPermaLink="false">Assets/Members/Database_Walker_Default.png</guid><pubDate>Thu, 05 Mar 2026 19:25:36 GMT</pubDate><enclosure url="assets/members/database_walker_default.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="assets/members/database_walker_default.png"&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
